@@ -2,6 +2,7 @@ import HelloReactView from 'Frontend/views/helloreact/HelloReactView.js';
 import MainLayout from 'Frontend/views/MainLayout.js';
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import TodoView from './views/TodoView';
 
 const AboutView = lazy(async () => import('Frontend/views/about/AboutView.js'));
 
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
+      { path: '/todo', element: <TodoView /> },
     ],
   },
 ]);
