@@ -144,6 +144,20 @@
             <version>1.18.24</version>
             <scope>provided</scope>
         </dependency>
+        <!-- Begin Spring Security Dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-jose</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-resource-server</artifactId>
+        </dependency>
+        <!-- End Spring Security Dependencies -->
     </dependencies>
 
     <build>
