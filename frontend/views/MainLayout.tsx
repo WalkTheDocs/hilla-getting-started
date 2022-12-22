@@ -2,18 +2,31 @@ import { AppLayout } from '@hilla/react-components/AppLayout.js';
 import { DrawerToggle } from '@hilla/react-components/DrawerToggle.js';
 import { Item } from '@hilla/react-components/Item.js';
 import { Scroller } from '@hilla/react-components/Scroller.js';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Button } from '@hilla/react-components/Button.js';
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import css from './MainLayout.module.css';
 import views, { RequiredViewInfoMap } from './views.js';
+import { logout } from '@hilla/frontend';
 
 export default function MenuOnLeftLayout() {
   const { pathname } = useLocation();
   const currentTitle = views[pathname]?.title ?? 'Unknown';
+  const navigate = useNavigate();
 
   return (
     <AppLayout className="block h-full" primarySection="drawer">
       <header slot="drawer">
         <h1 className="text-l m-0">hilla-getting-started</h1>
+        <Button
+          theme="primary"
+          onClick={() =>
+            logout()
+              .then(() => navigate('/login'))
+              .catch((e) => console.warn(e))
+          }
+        >
+          Logout
+        </Button>
       </header>
       <Scroller slot="drawer" scroll-direction="vertical">
         <nav>
